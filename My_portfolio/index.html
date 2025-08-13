@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mr. Dhrubajyoti Chattopadhyay</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Style the body with background image */
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    color: #333;
+    position: relative;
+  }
+
+  /* Background image with overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('science.jpeg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.4) blur(2px);
+    z-index: -2;
+  }
+
+  /* Semi-transparent overlay for better readability */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: -1;
+  }
+
+  /* Header/logo Title */
+  .header {
+    padding: 80px;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('DSC.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    
+  }
+
+  /* Increase the font size of the heading */
+  .header h1 {
+    font-size: 40px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Sticky navbar */
+  .navbar {
+    overflow: hidden;
+    background-color: rgba(51, 51, 51, 0.95);
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+  }
+
+  /* Style the navigation bar links */
+  .navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  /* Right-aligned link */
+  .navbar a.right {
+    float: right;
+  }
+
+  /* Change color on hover */
+  .navbar a:hover {
+    background-color: rgba(221, 221, 221, 0.8);
+    color: black;
+  }
+
+  /* Active/current link */
+  .navbar a.active {
+    background-color: rgba(102, 102, 102, 0.8);
+    color: white;
+  }
+
+  /* Column container */
+  .row {  
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    background-color: transparent;
+  }
+
+  /* Main column */
+  .main {   
+    -ms-flex: 70%; /* IE10 */
+    flex: 70%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* List items */
+  .list {
+    background-color: rgba(241, 241, 241, 0.9);
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+  }
+
+  .list:hover {
+    transform: translateY(-3px);
+  }
+
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(221, 221, 221, 0.9);
+  }
+
+  /* Contact section */
+  #contact {
+    padding: 32px;
+    background-color: rgba(249, 249, 249, 0.9);
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Articles section */
+  #articles {
+    padding: 32px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+
+  /* Work section */
+  #work {
+    padding: 32px;
+    background-color: rgba(249, 249, 249, 0.9);
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+
+  .w3-content {
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .w3-text-grey {
+    color: #555;
+  }
+
+  .w3-padding-32 {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .w3-input {
+    padding: 12px;
+    display: block;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  .w3-padding-16 {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .w3-button {
+    border: none;
+    display: inline-block;
+    padding: 12px 24px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    background-color: #1abc9c;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .w3-button:hover {
+    background-color: #16a085;
+  }
+
+  .w3-light-grey {
+    color: #000;
+    background-color: #f1f1f1;
+  }
+
+  .w3-padding-large {
+    padding: 12px 24px;
+  }
+
+  .w3-opacity {
+    opacity: 0.6;
+  }
+
+  /* Responsive layout - when the screen is less than 700px wide */
+  @media screen and (max-width: 700px) {
+    .row {   
+      flex-direction: column;
+    }
+    
+    .header {
+      padding: 60px 20px;
+    }
+    
+    .main, #contact {
+      margin: 10px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .navbar a {
+      float: none;
+      width: 100%;
+    }
+  }
+
+  /* Menu icon styles */
+  .menu-icon {
+    display: none;
+    float: right;
+    padding: 14px 20px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  /* Scrolled state for navbar */
+  .navbar.scrolled {
+    padding: 0;
+  }
+
+  .navbar.scrolled .menu-links {
+    display: none;
+  }
+
+  .navbar.scrolled .menu-icon {
+    display: block;
+  }
+
+  /* Show menu links when menu is open */
+  .navbar.scrolled.show-menu .menu-links {
+    display: block;
+    width: 100%;
+  }
+
+  .navbar.scrolled.show-menu a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  /* Close icon style - initially hidden */
+  .close-icon {
+    display: none;
+    float: right;
+    padding: 14px 20px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  /* Show close icon when menu is open */
+  .navbar.scrolled.show-menu .menu-icon {
+    display: none;
+  }
+
+  .navbar.scrolled.show-menu .close-icon {
+    display: block;
+  }  
+
+  .header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .social-icon {
+    font-size: 24px;
+    margin: 0 10px;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+
+  .social-icon:hover {
+    opacity: 0.7;
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 600px) {
+    .list {
+      height: auto !important;
+      padding: 15px !important;
+    }
+    
+    .header img {
+      width: 120px;
+      height: 120px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <img src="https://i1.rgstatic.net/ii/profile.image/312401319137281-1451493686219_Q128/Dhrubajyoti-Chattopadhyay-2.jpg" alt="Profile Picture">
+  <h1>Mr. Dhrubajyoti Chattopadhyay</h1>
+  <p><b>District Science Officer</b></p>
+  <p><b>District Science Centre, Purulia, India 723101</b></p>
+</div>
+
+<div class="navbar" id="navbar">
+  <div class="menu-links">
+    <a href="#" class="active">Home</a>
+    <a href="#articles">Articles</a>
+    <a href="#work">Work</a>
+    <a href="#contact" class="right">Contact</a>
+  </div>
+  <div class="menu-icon" id="menuIcon">☰</div>
+  <div class="close-icon" id="closeIcon">×</div>
+</div>
+
+<div class="row">
+  <div class="main">
+    <h2 class="w3-content w3-justify w3-text-grey w3-padding-32"><b>About Me</b></h2>
+    <p>I am working under the National Council of Science Museums and was posted at North Bengal Science Centre, Siliguri as a Project Coordinator. Currently serving as District Science Officer at District Science Centre Purulia. My work focuses on science communication through article writing and activity-based programs. I have published several hundred papers in multiple languages including Bengali, English, Hindi, Assamese, and Telugu.</p>
+    
+    <div id="articles">
+      <h2 class="w3-content w3-justify w3-text-grey w3-padding-32"><b>Articles & Publications</b></h2>
+      <p>My published works cover various aspects of science communication and education. Some notable publications include:</p>
+      <a href="articles.html">Click here --> </a>
+    </div>
+    
+    <div id="work">
+      <h2 class="w3-content w3-justify w3-text-grey w3-padding-32"><b>Work & Projects</b></h2>
+      <p>Key initiatives and programs I've led:</p>
+      <a href="work.html">Click here --> </a>
+    </div>
+    
+    <h2 class="w3-content w3-justify w3-text-grey w3-padding-32"><b>Expertise</b></h2>
+    <div class="list" style="height:auto;">Genre Fiction</div>
+    <div class="list" style="height:auto;">Disability Studies</div>
+    <div class="list" style="height:auto;">Folklore & Mythology</div>
+    <div class="list" style="height:auto;">Popular Culture</div>
+    <div class="list" style="height:auto;">New Media</div>
+    
+    <h2 class="w3-content w3-justify w3-text-grey w3-padding-32"><b>Honors & Awards</b></h2>
+    <div class="list" style="height:auto;">
+      <p>Awarded various accolades for research excellence and contributions to folklore studies.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div class="w3-content w3-justify w3-text-grey w3-padding-32" id="contact">
+  <h2><b>Contact Me</b></h2>
+  <p><b>Address:</b></p>
+  <p>Innovation Hub</p>
+  <p>District Science Centre, Purulia-723101</p>
+  <p>West Bengal, India</p>
+  <p><b>Email:</b>dckc.sc@gmail.com</p>
+  <h2><u></u>Connect with me:</u></h2>
+  <form id="contactForm">
+    <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" name="Name" required></p>
+    <p><input class="w3-input w3-padding-16" type="email" placeholder="Email" name="Email" required></p>
+    <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" name="Subject" required></p>
+    <p><textarea class="w3-input w3-padding-16" placeholder="Message" name="Message" required style="height:150px"></textarea></p>
+    <p>
+      <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+      </button>
+    </p>
+    <div id="formStatus" style="margin-top:10px; font-weight:bold;"></div>
+  </form>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fa fa-facebook-official"></i></a>
+  <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fa fa-linkedin"></i></a>
+  <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fa fa-twitter"></i></a>
+  <a href="https://researchgate.net" target="_blank" class="social-icon"><i class="fa fa-graduation-cap"></i></a>
+  <p class="w3-medium">Powered by <a href="#" target="_blank" class="w3-hover-text-green">Innovation Hub</a></p>
+  <p>&copy; <span id="year"></span> Mr. Dhrubajyoti Chattopadhyay. All rights reserved.</p>
+</div>
+
+<script>
+// Set current year in footer
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Navbar scroll function
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  const navbar = document.getElementById("navbar");
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+    navbar.classList.remove("show-menu");
+  }
+}
+
+// Toggle menu when menu icon is clicked
+document.getElementById("menuIcon").addEventListener("click", function() {
+  const navbar = document.getElementById("navbar");
+  navbar.classList.add("show-menu");
+});
+
+// Close menu when close icon is clicked
+document.getElementById("closeIcon").addEventListener("click", function() {
+  const navbar = document.getElementById("navbar");
+  navbar.classList.remove("show-menu");
+});
+
+// Contact form submission
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const form = this;
+    const formData = new FormData(form);
+    const statusDiv = document.getElementById("formStatus");
+
+    statusDiv.textContent = "Sending message...";
+    statusDiv.style.color = "#333";
+
+    fetch("https://script.google.com/macros/s/AKfycbxbvfCJVLcc8qT7Jtm5Mjwb1ZjHFND2oKsFSYesVAIWA24hwban23AP39ERELz6prQpew/exec", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => {
+        statusDiv.style.color = "green";
+        statusDiv.textContent = "✅ Message sent successfully!";
+        form.reset();
+    })
+    .catch(error => {
+        statusDiv.style.color = "red";
+        statusDiv.textContent = "❌ Error sending message. Please try again.";
+        console.error(error);
+    });
+});
+
+// Smooth scrolling for navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+
+</body>
+</html>
